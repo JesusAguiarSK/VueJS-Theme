@@ -1,0 +1,56 @@
+<div class="logo-list section">
+    <h2 class="logo-list-heading"> {{ section.settings.title }} </h2>
+
+    <div class="logo-container">
+        {% for block in section.blocks %}
+            <a class="logo-link" href="{{ block.settings.link }}">
+                <img src="{{ block.settings.image | img_url: 'master' }}"/>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Logo List",
+    "max_blocks": 5,
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Logo List"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "logo",
+            "name": "Logo",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Logo image"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Logo Link",
+                    "info": "Optional"
+                }
+            ]
+        }
+    ],
+    "presets" : [
+        {
+            "name": "Logo list",
+            "category": "Image",
+            "blocks": [
+                {
+                    "type": "logo"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

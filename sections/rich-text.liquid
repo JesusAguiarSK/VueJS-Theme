@@ -1,0 +1,44 @@
+<div class="rich-text section">
+    <h2 class="rich-text-heading">
+        {{ section.settings.title }}
+    </h2>
+    <div class="rich-text-content">
+        {{ section.settings.text }}
+    </div>
+    <div class="rich-text-button-container">
+        <a class="rich-text-button" href="/collections/certified-theme-build"> {{ section.settings.button }} </a>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"Rich Text",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Section Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "Description",
+            "default": "<p>Write your description here</p>"
+        },
+        {
+            "type": "text",
+            "id": "button",
+            "label": "Button",
+            "default": "Section Button"
+        }
+
+    ],
+    "presets": [
+        {
+            "name": "Rich Text",
+            "category": "Text"
+        }
+    ]
+}
+{% endschema %}
